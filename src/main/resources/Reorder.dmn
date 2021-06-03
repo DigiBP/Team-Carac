@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="Definitions_0r344vy" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="4.6.0">
+  <decision id="Decision_Reorder" name="Reorder" camunda:versionTag="0.1">
+    <decisionTable id="DecisionTable_04bi8ms" hitPolicy="FIRST">
+      <input id="Input_1" label="Amount">
+        <inputExpression id="InputExpression_1" typeRef="double">
+          <text>orderedAmount</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1de52fd" label="On Stock">
+        <inputExpression id="LiteralExpression_1laf9ub" typeRef="double">
+          <text>isOnStock</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Reorder" name="order" typeRef="boolean" />
+      <rule id="DecisionRule_1403sga">
+        <inputEntry id="UnaryTests_11f1s70">
+          <text>1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1yroeml">
+          <text>1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0bm011y">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_15276oc">
+        <inputEntry id="UnaryTests_05wcfhr">
+          <text>&gt;1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1cdozcr">
+          <text>&lt;2</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0x06v4c">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0xde6al">
+        <inputEntry id="UnaryTests_13d8ka1">
+          <text>&gt;1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fhxb4u">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1yhk49u">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0f3qmbq">
+        <inputEntry id="UnaryTests_1tnjx5f">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vjgsxt">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0bfwa48">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_Reorder">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_0gmgv8l" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.6.0">
+  <bpmn:collaboration id="Collaboration_07e9hse">
+    <bpmn:participant id="InventoryCheckAvialability" name="Inventory Check Avialability Process" processRef="InventoryCheckAvialabilityProcess" />
+  </bpmn:collaboration>
+  <bpmn:process id="InventoryCheckAvialabilityProcess" name="InventoryCheckAvialabilityProcess" isExecutable="true" camunda:versionTag="0.1">
+    <bpmn:sequenceFlow id="Flow_1ur4kin" sourceRef="StartEventInventoryCheckAvailabilityProcessStarted" targetRef="Activity_185o5ud" />
+    <bpmn:startEvent id="StartEventInventoryCheckAvailabilityProcessStarted">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="item" label="Item" type="string" />
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:outgoing>Flow_1ur4kin</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_1oi5q7j" messageRef="Message_09plv3h" />
+    </bpmn:startEvent>
+    <bpmn:endEvent id="Event_0utgkk5">
+      <bpmn:incoming>Flow_0yvzsqp</bpmn:incoming>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_1dr87bv" camunda:expression="${runtimeService.createMessageCorrelation(&#34;inventoryMessage&#34;).processInstanceBusinessKey(execution.getBusinessKey()).setVariables(execution.getVariables()).correlate()}" />
+    </bpmn:endEvent>
+    <bpmn:serviceTask id="Activity_185o5ud" name="Check availability">
+      <bpmn:extensionElements>
+        <camunda:connector>
+          <camunda:inputOutput>
+            <camunda:inputParameter name="payload">
+              <camunda:script scriptFormat="JavaScript">out = JSON.stringify({
+	"name":item
+});</camunda:script>
+            </camunda:inputParameter>
+            <camunda:inputParameter name="headers">
+              <camunda:map>
+                <camunda:entry key="Content-Type">application/json</camunda:entry>
+              </camunda:map>
+            </camunda:inputParameter>
+            <camunda:inputParameter name="url">https://hook.integromat.com/xqsdc3v69a2bwwvc3hyz8bwrbw1btmfr</camunda:inputParameter>
+            <camunda:inputParameter name="method">POST</camunda:inputParameter>
+            <camunda:outputParameter name="inventoryMessage">
+              <camunda:script scriptFormat="JavaScript">object=JSON.parse(response);
+inventoryMessage=object.Inventory;</camunda:script>
+            </camunda:outputParameter>
+          </camunda:inputOutput>
+          <camunda:connectorId>http-connector</camunda:connectorId>
+        </camunda:connector>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1ur4kin</bpmn:incoming>
+      <bpmn:outgoing>Flow_1pkacf4</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_1pkacf4" sourceRef="Activity_185o5ud" targetRef="Activity_19gi2o8" />
+    <bpmn:sequenceFlow id="Flow_0yvzsqp" sourceRef="Activity_19gi2o8" targetRef="Event_0utgkk5" />
+    <bpmn:userTask id="Activity_19gi2o8" name="Check correctness">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="inventoryMessage" label="On Stock" type="string" />
+          <camunda:formField id="item" label="Item" type="string" />
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1pkacf4</bpmn:incoming>
+      <bpmn:outgoing>Flow_0yvzsqp</bpmn:outgoing>
+    </bpmn:userTask>
+  </bpmn:process>
+  <bpmn:message id="Message_09plv3h" name="inventoryMessage" />
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_07e9hse">
+      <bpmndi:BPMNShape id="Participant_07pixac_di" bpmnElement="InventoryCheckAvialability" isHorizontal="true">
+        <dc:Bounds x="129" y="90" width="600" height="250" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1ur4kin_di" bpmnElement="Flow_1ur4kin">
+        <di:waypoint x="215" y="210" />
+        <di:waypoint x="250" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1pkacf4_di" bpmnElement="Flow_1pkacf4">
+        <di:waypoint x="350" y="210" />
+        <di:waypoint x="390" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0yvzsqp_di" bpmnElement="Flow_0yvzsqp">
+        <di:waypoint x="490" y="210" />
+        <di:waypoint x="562" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Event_15o2nbp_di" bpmnElement="StartEventInventoryCheckAvailabilityProcessStarted">
+        <dc:Bounds x="179" y="192" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0213r9h_di" bpmnElement="Event_0utgkk5">
+        <dc:Bounds x="562" y="192" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_070gw0z_di" bpmnElement="Activity_185o5ud">
+        <dc:Bounds x="250" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_13kwd64_di" bpmnElement="Activity_19gi2o8">
+        <dc:Bounds x="390" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

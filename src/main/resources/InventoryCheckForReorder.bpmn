@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1uyk7gf" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.6.0">
+  <bpmn:collaboration id="Collaboration_1edh5nn">
+    <bpmn:participant id="Participant_0d4m5fb" name="Inventory Check For Reorder" processRef="InventoryCheckForReorder" />
+  </bpmn:collaboration>
+  <bpmn:process id="InventoryCheckForReorder" name="InventoryCheckForReorder" isExecutable="true" camunda:versionTag="0.1">
+    <bpmn:startEvent id="Event_1fmwwqx">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="item" label="Item" type="string" />
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:outgoing>Flow_1oy7lor</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_11ipd3w" messageRef="Message_0eudhw1" />
+    </bpmn:startEvent>
+    <bpmn:endEvent id="Event_1u5hadl">
+      <bpmn:incoming>Flow_0gipqkm</bpmn:incoming>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_16ghniy" camunda:expression="${runtimeService.createMessageCorrelation(&#34;inventoryReorderMessage&#34;).processInstanceBusinessKey(execution.getBusinessKey()).setVariables(execution.getVariables()).correlate()}" />
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1oy7lor" sourceRef="Event_1fmwwqx" targetRef="Activity_17vc23j" />
+    <bpmn:serviceTask id="Activity_17vc23j" name="Check availability">
+      <bpmn:extensionElements>
+        <camunda:connector>
+          <camunda:inputOutput>
+            <camunda:inputParameter name="payload">
+              <camunda:script scriptFormat="JavaScript">out = JSON.stringify({
+	"name":item,
+        "amount":amount
+});</camunda:script>
+            </camunda:inputParameter>
+            <camunda:inputParameter name="headers">
+              <camunda:map>
+                <camunda:entry key="Content-Type">application/json</camunda:entry>
+              </camunda:map>
+            </camunda:inputParameter>
+            <camunda:inputParameter name="url">https://hook.integromat.com/qgzk4md7dg7p2lgy1klm8ogivmr1ossf</camunda:inputParameter>
+            <camunda:inputParameter name="method">POST</camunda:inputParameter>
+            <camunda:outputParameter name="inventoryReorderMessage">
+              <camunda:script scriptFormat="JavaScript">object=JSON.parse(response);
+inventoryReorderMessage=object.Inventory;</camunda:script>
+            </camunda:outputParameter>
+          </camunda:inputOutput>
+          <camunda:connectorId>http-connector</camunda:connectorId>
+        </camunda:connector>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1oy7lor</bpmn:incoming>
+      <bpmn:outgoing>Flow_1pa5jmn</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_1pa5jmn" sourceRef="Activity_17vc23j" targetRef="Activity_02cexy1" />
+    <bpmn:sequenceFlow id="Flow_0gipqkm" sourceRef="Activity_02cexy1" targetRef="Event_1u5hadl" />
+    <bpmn:userTask id="Activity_02cexy1" name="Check correctness">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="inventoryReorderMessage" label="On Stock" type="string" />
+          <camunda:formField id="item" label="Item" type="string" />
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1pa5jmn</bpmn:incoming>
+      <bpmn:outgoing>Flow_0gipqkm</bpmn:outgoing>
+    </bpmn:userTask>
+  </bpmn:process>
+  <bpmn:message id="Message_0eudhw1" name="inventoryReorderMessage" />
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1edh5nn">
+      <bpmndi:BPMNShape id="Participant_0d4m5fb_di" bpmnElement="Participant_0d4m5fb" isHorizontal="true">
+        <dc:Bounds x="129" y="120" width="600" height="250" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1oy7lor_di" bpmnElement="Flow_1oy7lor">
+        <di:waypoint x="215" y="240" />
+        <di:waypoint x="270" y="240" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1pa5jmn_di" bpmnElement="Flow_1pa5jmn">
+        <di:waypoint x="370" y="240" />
+        <di:waypoint x="420" y="240" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0gipqkm_di" bpmnElement="Flow_0gipqkm">
+        <di:waypoint x="520" y="240" />
+        <di:waypoint x="562" y="240" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Event_1fmwwqx_di" bpmnElement="Event_1fmwwqx">
+        <dc:Bounds x="179" y="222" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1u5hadl_di" bpmnElement="Event_1u5hadl">
+        <dc:Bounds x="562" y="222" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_17vc23j_di" bpmnElement="Activity_17vc23j">
+        <dc:Bounds x="270" y="200" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0pbcqiv_di" bpmnElement="Activity_02cexy1">
+        <dc:Bounds x="420" y="200" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

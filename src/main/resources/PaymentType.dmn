@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_0n2t1tr" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="4.7.0">
+  <decision id="Decision_PaymentType" name="PaymentType">
+    <decisionTable id="DecisionTable_1w1mvjg" hitPolicy="FIRST">
+      <input id="Input_1" biodi:width="192">
+        <inputExpression id="InputExpression_1" typeRef="boolean">
+          <text>checkout</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1g4kw9g" label="payment" biodi:width="192">
+        <inputExpression id="LiteralExpression_1ool5eq" typeRef="string">
+          <text>payment</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_12o0wrr">
+          <text>"Online","Paypal","Prepay","Bill","Creditcard"</text>
+        </inputValues>
+      </input>
+      <output id="Output_1" label="CreateBill" name="createBill" typeRef="string" biodi:width="192">
+        <outputValues id="UnaryTests_0ic7s15">
+          <text>"cancel","bill","nobill"</text>
+        </outputValues>
+      </output>
+      <output id="OutputClause_0zks7ct" label="Explanation" name="explanation" typeRef="string" />
+      <rule id="DecisionRule_0t1857c">
+        <description></description>
+        <inputEntry id="UnaryTests_1irje9o">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1188wk1">
+          <text>"Online"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ooq5am">
+          <text>"nobill"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1xa3n50">
+          <text>"Pay with an online method"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0fplo2d">
+        <description></description>
+        <inputEntry id="UnaryTests_14c4d4o">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1s0l6r1">
+          <text>"Prepay"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0xrypoy">
+          <text>"nobill"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1y7sq5v">
+          <text>"Prepay"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_06uz661">
+        <description></description>
+        <inputEntry id="UnaryTests_0dcnkjg">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1b49ddw">
+          <text>"Bill"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_11jvyh3">
+          <text>"bill"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1ckroan">
+          <text>"Create a Bill"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_09zexy1">
+        <description></description>
+        <inputEntry id="UnaryTests_1j430ap">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ruy41v">
+          <text>"Paypal"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1oev1mv">
+          <text>"nobill"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0jnndxx">
+          <text>"Checkout with Paypal"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_03u8ay9">
+        <description></description>
+        <inputEntry id="UnaryTests_0oqzq22">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ds30ch">
+          <text>"Creditcard"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1k9pcum">
+          <text>"nobill"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1wbq7wk">
+          <text>"Pay with Creditcard"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_06bk8td">
+        <description></description>
+        <inputEntry id="UnaryTests_0nbh6y3">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_13bmn44">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1tq92rw">
+          <text>"cancel"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_09hymoj">
+          <text>"no checkout, cancel"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1kpfuas">
+        <description></description>
+        <inputEntry id="UnaryTests_15yljy3">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mk32s2">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1vyrt70">
+          <text>"cancel"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1648bqu">
+          <text>"nothing, cancel"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_PaymentType">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="Definitions_0us9ga4" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="4.6.0">
+  <decision id="Decision_OnStock" name="OnStock" camunda:versionTag="0.1">
+    <decisionTable id="DecisionTable_1jhvq1b" hitPolicy="FIRST">
+      <input id="Input_1" label="On Stock">
+        <inputExpression id="InputExpression_1" typeRef="double">
+          <text>stock</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_16ngbl5" label="Amount" biodi:width="192">
+        <inputExpression id="LiteralExpression_04iespe" typeRef="double">
+          <text>orderedAmount</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Is it on Stock?" name="stock" typeRef="boolean" />
+      <rule id="DecisionRule_0ntetbz">
+        <inputEntry id="UnaryTests_19t6qb2">
+          <text>&lt;1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qp7bvj">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1y9rldj">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1xc7r5p">
+        <inputEntry id="UnaryTests_0ea8gwz">
+          <text>1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0upzfc4">
+          <text>1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1nuesze">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0dahag8">
+        <inputEntry id="UnaryTests_1cgebi7">
+          <text>&gt;1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_146mdyk">
+          <text>1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1q08xht">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1xwkmwo">
+        <inputEntry id="UnaryTests_1imatec">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_13ufxf1">
+          <text>&gt;0</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1o3myid">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1kh7gqm">
+        <inputEntry id="UnaryTests_1apk2xi">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1r9yqhv">
+          <text>&gt;1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_097kdp3">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0pb9vm2">
+        <inputEntry id="UnaryTests_0a4a628">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0k8pr6e">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0t2vi1l">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_OnStock">
+        <dc:Bounds height="80" width="180" x="160" y="80" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
