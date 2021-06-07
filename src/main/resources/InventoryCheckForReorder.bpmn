@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1uyk7gf" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.6.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1uyk7gf" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.7.0">
   <bpmn:collaboration id="Collaboration_1edh5nn">
     <bpmn:participant id="Participant_0d4m5fb" name="Inventory Check For Reorder" processRef="InventoryCheckForReorder" />
   </bpmn:collaboration>
@@ -48,7 +48,7 @@ inventoryReorderMessage=object.Inventory;</camunda:script>
     </bpmn:serviceTask>
     <bpmn:sequenceFlow id="Flow_1pa5jmn" sourceRef="Activity_17vc23j" targetRef="Activity_02cexy1" />
     <bpmn:sequenceFlow id="Flow_0gipqkm" sourceRef="Activity_02cexy1" targetRef="Event_1u5hadl" />
-    <bpmn:userTask id="Activity_02cexy1" name="Check correctness">
+    <bpmn:userTask id="Activity_02cexy1" name="Check correctness" camunda:candidateGroups="inventoryManagers">
       <bpmn:extensionElements>
         <camunda:formData>
           <camunda:formField id="inventoryReorderMessage" label="On Stock" type="string" />
@@ -65,17 +65,17 @@ inventoryReorderMessage=object.Inventory;</camunda:script>
       <bpmndi:BPMNShape id="Participant_0d4m5fb_di" bpmnElement="Participant_0d4m5fb" isHorizontal="true">
         <dc:Bounds x="129" y="120" width="600" height="250" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="Flow_1oy7lor_di" bpmnElement="Flow_1oy7lor">
-        <di:waypoint x="215" y="240" />
-        <di:waypoint x="270" y="240" />
+      <bpmndi:BPMNEdge id="Flow_0gipqkm_di" bpmnElement="Flow_0gipqkm">
+        <di:waypoint x="520" y="240" />
+        <di:waypoint x="562" y="240" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1pa5jmn_di" bpmnElement="Flow_1pa5jmn">
         <di:waypoint x="370" y="240" />
         <di:waypoint x="420" y="240" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0gipqkm_di" bpmnElement="Flow_0gipqkm">
-        <di:waypoint x="520" y="240" />
-        <di:waypoint x="562" y="240" />
+      <bpmndi:BPMNEdge id="Flow_1oy7lor_di" bpmnElement="Flow_1oy7lor">
+        <di:waypoint x="215" y="240" />
+        <di:waypoint x="270" y="240" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Event_1fmwwqx_di" bpmnElement="Event_1fmwwqx">
         <dc:Bounds x="179" y="222" width="36" height="36" />
