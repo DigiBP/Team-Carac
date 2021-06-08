@@ -1,0 +1,38 @@
+{
+  "id": "f926353b-a711-452a-b466-7b651042c37f",
+  "name": "Customer-Not Ordering",
+  "auto": true,
+  "contexts": [
+    "place_order"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "Product-Catalogue.Product-Catalogue-custom",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "Thank you for visitng Carac Lounge. Please do visit us again for exciting offers !!"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": [],
+  "endInteraction": true
+}

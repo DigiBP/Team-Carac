@@ -1,0 +1,42 @@
+{
+  "id": "80f8cd9e-d04a-42f3-81e2-1a6307868f7c",
+  "name": "02-Product-Catalogue",
+  "auto": true,
+  "contexts": [
+    "welcome"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "place_order",
+          "lifespan": 1
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "Pizza - CHF 18.00                                                                                                                                                                                                                                                                         \nChocolate - CHF 5.00                                                                                                                                                                                                                                                                         \nGummybears, - CHF 4.50                                                                                                                                                                                                                                                                          \nTiramisu - CHF 15.00                                                                                                                                                                                                                                                                         \nNutcake - CHF 25.00                                                                                                                                                                                                                                                                         \nGarlicbread - CHF 2.10                                                                                                                                                                                                                                                                         \nIcecream - CHF 2.70 \nHoney-CHF 10.00                                                                                                                                                                                                                                                                        \n                                                                                                                                                                                                                                                                         \nDo you want to place an order?"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

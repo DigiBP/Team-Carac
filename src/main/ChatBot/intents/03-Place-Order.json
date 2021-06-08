@@ -1,0 +1,228 @@
+{
+  "id": "3587aa80-4ca9-4203-b723-79ae329bb343",
+  "name": "03-Place-Order",
+  "auto": true,
+  "contexts": [
+    "place_order"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "4a95ada2-b7b0-4018-93b7-baa619649052",
+          "name": "OrderItem",
+          "required": true,
+          "dataType": "@Product-List",
+          "value": "$OrderItem",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "Please enter the item name and required quantity."
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "84ac9a57-8540-4e61-87d9-b76e01b4c766",
+          "name": "number",
+          "required": true,
+          "dataType": "@sys.number",
+          "value": "$number",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "Please enter the required item name."
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "f2f96950-0d93-4c0d-a462-56c0f99057c6",
+          "name": "Firstname",
+          "required": true,
+          "dataType": "@sys.given-name",
+          "value": "$firstname",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "Your order of $number $OrderItem has been added to your cart.\n\n For checkout, please enter your first name."
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "5de6650f-008d-4bc4-9add-22a72b7ff153",
+          "name": "Lastname",
+          "required": true,
+          "dataType": "@sys.last-name",
+          "value": "$lastname",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "Please enter your last name"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "a4112e10-568c-4a24-a32f-ec8e4eb44b03",
+          "name": "Email",
+          "required": true,
+          "dataType": "@sys.email",
+          "value": "$email",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "Enter your email address"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "81978081-10e2-4f8a-b669-d9f43d6fdffc",
+          "name": "Payment",
+          "required": true,
+          "dataType": "@Payment-Option",
+          "value": "$payment",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "Enter your payment method: Credit, Debit, Paypal, Twint"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "d0b59f25-37d1-47a1-be79-b01f7afffac7",
+          "name": "BuildingNumber",
+          "required": true,
+          "dataType": "@sys.number-integer",
+          "value": "$street",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "Thanks $Firstname. Please provide your address details.\n\nEnter your building/house number."
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "fa0349ca-e780-447a-a36c-a11e512ef3fb",
+          "name": "Streetname",
+          "required": true,
+          "dataType": "@sys.street-address",
+          "value": "$streetname",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "Enter the Street name"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "69e9b46f-ef1b-4c48-b5b1-30bb55adeb1c",
+          "name": "City",
+          "required": true,
+          "dataType": "@sys.geo-city",
+          "value": "$city",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "Enter your city name"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "54fd80e1-120a-4051-92d4-aa48d355543a",
+          "name": "Zipcode",
+          "required": true,
+          "dataType": "@sys.zip-code",
+          "value": "$zipcode",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "Enter Zipcode"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "Thanks $firstname for your order of  $number $OrderItem. \n\nYour order confirmation has been sent to $email.original and the order will be delivered to your address.\n\n Please do visit again for our exciting offers !!"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}
