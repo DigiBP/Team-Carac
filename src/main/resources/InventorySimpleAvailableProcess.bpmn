@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_0gmgv8l" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.6.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_0gmgv8l" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.7.0">
   <bpmn:collaboration id="Collaboration_07e9hse">
     <bpmn:participant id="InventoryCheckAvialability" name="Inventory Check Avialability Process" processRef="InventoryCheckAvialabilityProcess" />
   </bpmn:collaboration>
@@ -47,7 +47,7 @@ inventoryMessage=object.Inventory;</camunda:script>
     </bpmn:serviceTask>
     <bpmn:sequenceFlow id="Flow_1pkacf4" sourceRef="Activity_185o5ud" targetRef="Activity_19gi2o8" />
     <bpmn:sequenceFlow id="Flow_0yvzsqp" sourceRef="Activity_19gi2o8" targetRef="Event_0utgkk5" />
-    <bpmn:userTask id="Activity_19gi2o8" name="Check correctness">
+    <bpmn:userTask id="Activity_19gi2o8" name="Check correctness" camunda:candidateGroups="inventoryManagers">
       <bpmn:extensionElements>
         <camunda:formData>
           <camunda:formField id="inventoryMessage" label="On Stock" type="string" />
@@ -64,17 +64,17 @@ inventoryMessage=object.Inventory;</camunda:script>
       <bpmndi:BPMNShape id="Participant_07pixac_di" bpmnElement="InventoryCheckAvialability" isHorizontal="true">
         <dc:Bounds x="129" y="90" width="600" height="250" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="Flow_1ur4kin_di" bpmnElement="Flow_1ur4kin">
-        <di:waypoint x="215" y="210" />
-        <di:waypoint x="250" y="210" />
+      <bpmndi:BPMNEdge id="Flow_0yvzsqp_di" bpmnElement="Flow_0yvzsqp">
+        <di:waypoint x="490" y="210" />
+        <di:waypoint x="562" y="210" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1pkacf4_di" bpmnElement="Flow_1pkacf4">
         <di:waypoint x="350" y="210" />
         <di:waypoint x="390" y="210" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0yvzsqp_di" bpmnElement="Flow_0yvzsqp">
-        <di:waypoint x="490" y="210" />
-        <di:waypoint x="562" y="210" />
+      <bpmndi:BPMNEdge id="Flow_1ur4kin_di" bpmnElement="Flow_1ur4kin">
+        <di:waypoint x="215" y="210" />
+        <di:waypoint x="250" y="210" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Event_15o2nbp_di" bpmnElement="StartEventInventoryCheckAvailabilityProcessStarted">
         <dc:Bounds x="179" y="192" width="36" height="36" />

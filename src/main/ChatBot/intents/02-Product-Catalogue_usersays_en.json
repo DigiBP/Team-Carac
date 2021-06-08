@@ -1,0 +1,171 @@
+[
+  {
+    "id": "80bac00a-9d70-4126-adeb-8b4a72e80b1f",
+    "data": [
+      {
+        "text": "All items",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "9b92d1f1-9109-4425-8871-016dcba88b63",
+    "data": [
+      {
+        "text": "offers ?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "b2c6ade8-5d02-4c76-96e6-674f511efa40",
+    "data": [
+      {
+        "text": "items ?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "7108e327-fde5-4cba-9d14-605420acbdd3",
+    "data": [
+      {
+        "text": "what offers",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "bfd8fa9f-74fe-4171-8ee0-c7b6eb7fe001",
+    "data": [
+      {
+        "text": "what items",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "832f3a12-d8d5-44ec-8567-91b9b529ae80",
+    "data": [
+      {
+        "text": "show items",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "eda6f0f9-3707-4826-9677-284d07ef1de5",
+    "data": [
+      {
+        "text": "products",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "59fe22e1-a01a-44a7-877e-6c4bdcae939e",
+    "data": [
+      {
+        "text": "ok products",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "8a27ca45-3350-4e90-bd65-6144c1f0a32c",
+    "data": [
+      {
+        "text": "OK",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "66a8a5f0-ab3e-4e3b-a242-12f3c8daf41f",
+    "data": [
+      {
+        "text": "what items do you have in your product catalogue?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "99ac2af4-1063-475e-985b-4191f22dffcf",
+    "data": [
+      {
+        "text": "show me all the products offer",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "de2eedd6-987a-4e10-a54a-6d530e2758ba",
+    "data": [
+      {
+        "text": "Show me all your products",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "bb602843-c31f-4b6b-89fe-70f4efe67e46",
+    "data": [
+      {
+        "text": "What products do you have ?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  }
+]

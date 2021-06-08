@@ -1,0 +1,72 @@
+[
+  {
+    "value": "Chocolate",
+    "synonyms": [
+      "Chocolate",
+      "choco",
+      "Choco",
+      "chocolate",
+      "chocos",
+      "chocolates",
+      "Chocolates"
+    ]
+  },
+  {
+    "value": "Gummybears",
+    "synonyms": [
+      "Gummybears",
+      "gummybears",
+      "gummies",
+      "Gummies"
+    ]
+  },
+  {
+    "value": "Icecream",
+    "synonyms": [
+      "Icecream",
+      "icecream",
+      "ice",
+      "Glace",
+      "glace"
+    ]
+  },
+  {
+    "value": "Tiramisu",
+    "synonyms": [
+      "Tiramisu",
+      "tiramisu"
+    ]
+  },
+  {
+    "value": "Nutcake",
+    "synonyms": [
+      "Nutcake",
+      "nutcake",
+      "cake",
+      "Cake",
+      "nuts",
+      "Nuts",
+      "nut",
+      "Nut"
+    ]
+  },
+  {
+    "value": "Garlicbread",
+    "synonyms": [
+      "Garlicbread",
+      "garlicbread",
+      "bread",
+      "Bread",
+      "Garlic",
+      "garlic"
+    ]
+  },
+  {
+    "value": "Pizza",
+    "synonyms": [
+      "Pizza",
+      "pizza",
+      "pizzas"
+    ]
+  }
+]
