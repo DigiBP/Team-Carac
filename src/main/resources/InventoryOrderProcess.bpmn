@@ -133,7 +133,7 @@
                 <camunda:entry key="Content-Type">application/json</camunda:entry>
               </camunda:map>
             </camunda:inputParameter>
-            <camunda:inputParameter name="url" />
+            <camunda:inputParameter name="url">https://hook.integromat.com/t1mvk10bd9r7u9b2ewia3v798bhs691z</camunda:inputParameter>
           </camunda:inputOutput>
           <camunda:connectorId>http-connector</camunda:connectorId>
         </camunda:connector>
