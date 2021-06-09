@@ -146,7 +146,7 @@
         <parameter key="condition_class" value="custom_filters"/>
         <parameter key="invert_filter" value="false"/>
         <list key="filters_list">
-          <parameter key="filters_entry_key" value="maximum(att_1)_processInstanceId.equals.8c70d1a3-bef9-11eb-90c8-128b2648b515"/>
+          <parameter key="filters_entry_key" value="maximum(att_1)_processInstanceId.equals.a7b2eee9-c527-11eb-985e-560e116a0d85"/>
         </list>
         <parameter key="filters_logic_and" value="true"/>
         <parameter key="filters_check_metadata" value="true"/>
